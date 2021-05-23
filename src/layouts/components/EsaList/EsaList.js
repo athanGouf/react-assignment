@@ -38,8 +38,8 @@ const EsaList = ({ list, selectedOptions, setSelect, title }) => {
   const isSelected = value => selectedOptions.some(option => value.id === option.id);
 
   return (
-    <Grid item xs={10}>
-      <Portlet>
+    <Grid item xs={11}>
+      <Portlet className={classes.fullHeight}>
         <PortletHeader className={classes.header}>
           <PortletLabel title={title} />
           <PortletToolbar>

@@ -26,7 +26,8 @@ const styles = theme => ({
       width: '30%'
     }
   },
-  button: { marginTop: theme.spacing(3), width: '100%' }
+  button: { marginTop: theme.spacing(3), width: '100%' },
+  plot: {width: '100%', height:'100%'}
 });
 const useStyles = makeStyles(styles);
 
@@ -72,7 +73,7 @@ export default function Wellbore() {
     <Dashboard>
       <Grid item xs={12} container className={classes.fullHeight}>
         <Grid item xs={6} container>
-          <Grid item xs={4}>
+          <Grid item xs={4} container>
             <EsaList
               list={wellList}
               selectedOptions={selectedWells}
@@ -80,7 +81,7 @@ export default function Wellbore() {
               title={'Wells'}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} container justify="center">
             <EsaList
               list={logsList}
               selectedOptions={selectedLogs}
@@ -88,27 +89,27 @@ export default function Wellbore() {
               title={'Logs'}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} container justify="flex-end">
             <EsaList
               list={formationList}
               selectedOptions={selectedFormations}
               setSelect={setSelectedFormations}
               title={'Formations'}
             />
-            <Grid item xs={10}>
+            <Grid item xs={11}>
               <EsaButton disabled={isDisabled()} className={classes.button} onClick={showPlot}>
                 SHOW PLOT
               </EsaButton>
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} style={{paddingLeft: '1rem'}}>
           {showLogo ? (
             <div className={classes.logoContainer}>
               <EsaLogo />
             </div>
           ) : (
-            <Plot data={plotData} layout={{ height: '100%', width: '100%', title: 'Wells Plot' }} />
+            <Plot data={plotData} layout={{ title: 'Wells Plot' }} className={classes.plot}/>
           )}
         </Grid>
       </Grid>
