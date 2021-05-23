@@ -1,8 +1,5 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core';
-import React, { useMemo } from 'react';
-import { useEffect } from 'react';
-import { useCallback } from 'react';
-import { useState } from 'react';
+import { Grid, makeStyles } from '@material-ui/core';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Plot from 'react-plotly.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPlots } from '../api/requests';
@@ -108,7 +105,6 @@ export default function Histogram() {
       <Grid item xs={12} container className={classes.fullHeight}>
         <Grid item xs={6} container>
           <Grid item xs={12}>
-            <Typography variant="body1">* Usage of Paper</Typography>
             <EsaPaper className={classes.paper}>
               <Grid container spacing={3}>
                 <Grid item xs={6}>
